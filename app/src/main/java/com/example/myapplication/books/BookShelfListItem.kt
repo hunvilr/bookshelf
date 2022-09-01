@@ -1,5 +1,6 @@
 package com.example.myapplication.books
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -38,7 +42,8 @@ fun BookShelfListItems(bookList: List<Book>) {
         items(items = bookList, itemContent = { book ->
             Row(modifier = Modifier
                 .padding(4.dp)
-                .fillMaxWidth()) {
+                .fillMaxWidth()
+                .height(IntrinsicSize.Max)) {
                 val image: Painter = painterResource(id = book.bookImage)
                 Image(
                     modifier = Modifier
@@ -67,17 +72,56 @@ fun BookShelfListItems(bookList: List<Book>) {
                     modifier = Modifier.weight(1f)
 
                 )
-                Text(
+                Column(
                     modifier = Modifier
-                        .padding(end = 8.dp)
-                        .align(Alignment.CenterVertically),
-                    text = book.percentRead.toString(),
-                    style = TextStyle(
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 14.sp
-                    ),
-                    textAlign = TextAlign.Center
-                )
+                        .width(100.dp)
+                        .fillMaxHeight(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Row(
+                        modifier = Modifier.weight(0.5f),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.Bottom
+
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .padding(bottom = 8.dp),
+                            text = book.percentRead.toString(),
+                            style = TextStyle(
+                                fontWeight = FontWeight.Normal,
+                                fontSize = 14.sp
+                            ),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.weight(0.5f),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Canvas(
+                            modifier = Modifier
+                                .size(width = 20.dp, height = 20.dp)
+                        ) {
+                            val canvasWidth = size.width
+                            val canvasHeight = size.height
+                            drawCircle(
+                                color = Color.Black,
+                                center = Offset(x = canvasWidth/2, y = canvasHeight/2),
+                                radius = canvasWidth/2,
+                                style = Stroke(2f)
+                            )
+                            drawArc(
+                                color = Color.Black,
+                                startAngle = 0f,
+                                sweepAngle = 90f,
+                                useCenter = true
+                            )
+                        }
+                    }
+                }
             }
         })
     }

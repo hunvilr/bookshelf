@@ -24,8 +24,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //Greeting("Android")
-                    //BookShelfListItems(bookList = getBooks())
-                    PieChart(points = listOf(25f, 35f), colors = listOf(Color.Red, Color.Blue))
+                    BookShelfListItems(bookList = getBooks())
+                    //PieChart(points = listOf(25f, 35f), colors = listOf(Color.Red, Color.Blue))
                 }
             }
         }
