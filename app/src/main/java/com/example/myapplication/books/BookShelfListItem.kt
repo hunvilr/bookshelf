@@ -96,6 +96,12 @@ fun BookShelfListItems(bookList: List<Book>) {
                             textAlign = TextAlign.Center
                         )
                     }
+                    /**
+                     * 100 book.percentRead
+                     * 360 ?
+                     *
+                     * sweepAngle = (360 * book.percentRead) / 100
+                     */
                     Row(
                         modifier = Modifier.weight(0.5f),
                         horizontalArrangement = Arrangement.Center,
@@ -113,10 +119,11 @@ fun BookShelfListItems(bookList: List<Book>) {
                                 radius = canvasWidth/2,
                                 style = Stroke(2f)
                             )
+                            val sweepAngle = (360 * book.percentRead) / 100
                             drawArc(
                                 color = Color.Black,
-                                startAngle = 0f,
-                                sweepAngle = 90f,
+                                startAngle = 270f,
+                                sweepAngle = sweepAngle.toFloat(),
                                 useCenter = true
                             )
                         }
