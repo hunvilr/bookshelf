@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,9 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,5 +78,68 @@ fun MetricsTitle() {
 
 @Composable
 fun MetricsData(metrics: Metrics) {
-
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+            .clip(RoundedCornerShape(8.dp))
+            .background(Color.White),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = metrics.numberOfHours.toString(),
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.Black,
+                fontSize = 24.sp
+            )
+            Text(
+                text = "Hours",
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.Gray,
+                fontSize = 12.sp
+            )
+        }
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = metrics.numberOfBooks.toString(),
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.Black,
+                fontSize = 24.sp
+            )
+            Text(
+                text = "Books",
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.Gray,
+                fontSize = 12.sp
+            )
+        }
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = metrics.numberOfAuthors.toString(),
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.Black,
+                fontSize = 24.sp
+            )
+            Text(
+                text = "Authors",
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.Gray,
+                fontSize = 12.sp
+            )
+        }
+    }
 }

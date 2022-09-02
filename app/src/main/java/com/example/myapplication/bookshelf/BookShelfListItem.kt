@@ -37,11 +37,22 @@ fun BookShelfListItemsPreview() {
 
 @Composable
 fun BookShelfListItems(bookList: List<Book>) {
-    LazyColumn(modifier = Modifier.fillMaxHeight()) {
-        items(items = bookList, itemContent = { book ->
-            BookShelfItem(book)
-            Divider(modifier = Modifier.fillMaxWidth().padding(8.dp))
-        })
+    Column(modifier = Modifier.padding(8.dp)) {
+        Text(
+            text = "Continue Reading",
+            style = MaterialTheme.typography.titleMedium,
+            textAlign = TextAlign.Start,
+            fontSize = 16.sp
+        )
+        Spacer(modifier = Modifier.fillMaxWidth().padding(4.dp))
+        LazyColumn(modifier = Modifier.fillMaxHeight()) {
+            items(items = bookList, itemContent = { book ->
+                BookShelfItem(book)
+                Divider(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp))
+            })
+        }
     }
 }
 
