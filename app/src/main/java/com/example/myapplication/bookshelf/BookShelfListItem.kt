@@ -143,7 +143,7 @@ fun PieChart(book: Book) {
         val canvasWidth = size.width
         val canvasHeight = size.height
         drawCircle(
-            color = Color.LightGray,
+            color = Color.Black,
             center = Offset(x = canvasWidth/2, y = canvasHeight/2),
             radius = canvasWidth/2,
             style = Stroke(2f)
