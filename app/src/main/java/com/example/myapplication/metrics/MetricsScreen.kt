@@ -81,8 +81,8 @@ fun MetricsData(metrics: Metrics) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
-            .clip(RoundedCornerShape(8.dp))
+            .padding(16.dp)
+            .clip(RoundedCornerShape(12.dp))
             .background(Color.White),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
