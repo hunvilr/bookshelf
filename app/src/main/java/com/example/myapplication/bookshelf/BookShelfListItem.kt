@@ -143,16 +143,25 @@ fun PieChart(book: Book) {
         val canvasWidth = size.width
         val canvasHeight = size.height
         drawCircle(
-            color = Color.Black,
+            color = Color.White,
+            alpha = 1f,
             center = Offset(x = canvasWidth/2, y = canvasHeight/2),
             radius = canvasWidth/2,
             style = Stroke(2f)
         )
+
         val sweepAngle = (360 * book.percentRead) / 100
+
         drawArc(
             color = Color.Black,
             startAngle = 270f,
             sweepAngle = sweepAngle.toFloat(),
+            useCenter = true
+        )
+        drawArc(
+            color = Color.White,
+            startAngle = 270f + sweepAngle.toFloat(),
+            sweepAngle = 360 - sweepAngle.toFloat(),
             useCenter = true
         )
     }
