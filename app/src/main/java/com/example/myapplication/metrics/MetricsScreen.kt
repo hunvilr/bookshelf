@@ -93,7 +93,7 @@ fun MetricsData(metrics: Metrics) {
             .fillMaxWidth()
             .padding(16.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(Color.White),
+            .background(Color.White.copy(.5f)),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {

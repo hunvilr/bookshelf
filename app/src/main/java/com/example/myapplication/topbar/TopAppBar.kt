@@ -4,6 +4,7 @@ import androidx.compose.material.Text
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -37,7 +38,8 @@ fun TopBar() {
                 tint = Color.Black.copy(alpha = 0.8f),
                 contentDescription = "Notifications"
             )
-        }
+        },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color(R.color.colorPrimary).copy(.1f))
     )
 }
 

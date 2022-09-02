@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#DBE7E3</color>
+    <color name="smartPickerColor">#E79569</color>
 <!--    <color name="colorPrimary">#00DCE6E2</color>-->
 <!--    <color name="colorPrimary">#D0E2DB</color>-->
 <!--    <color name="colorPrimary">#C6D7D4</color>-->
