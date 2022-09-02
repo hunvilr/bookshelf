@@ -9,9 +9,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import com.example.myapplication.bookshelf.BookShelfListItems
+import com.example.myapplication.bottombar.BottomBar
 import com.example.myapplication.metrics.Metrics
 import com.example.myapplication.model.getBooks
+import com.example.myapplication.model.getBottomBarNavItems
 import com.example.myapplication.model.getMetrics
 import com.example.myapplication.model.getProfile
 import com.example.myapplication.profile.ProfileSection
@@ -28,12 +31,13 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(223, 231, 238)//MaterialTheme.colorScheme.background
+                    color = colorResource(id = R.color.colorPrimary) //Color(221, 231, 227)//MaterialTheme.colorScheme.background
                 ) {
                     Column {
                         ProfileSection(profile = getProfile())
                         Metrics(metrics = getMetrics())
                         BookShelfListItems(bookList = getBooks())
+                        BottomBar(getBottomBarNavItems())
                     }
                 }
             }
