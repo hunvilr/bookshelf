@@ -106,7 +106,7 @@ fun BookShelfItem(book: Book) {
                 Text(
                     modifier = Modifier
                         .padding(bottom = 8.dp),
-                    text = book.percentRead.toString(),
+                    text = book.percentRead.toString() + "%",
                     style = TextStyle(
                         fontWeight = FontWeight.Normal,
                         fontSize = 14.sp
