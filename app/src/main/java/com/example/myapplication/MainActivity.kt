@@ -8,7 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.myapplication.bookshelf.BookShelfListItems
+import com.example.myapplication.metrics.Metrics
 import com.example.myapplication.model.getBooks
+import com.example.myapplication.model.getMetrics
 import com.example.myapplication.model.getProfile
 import com.example.myapplication.profile.ProfileSection
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -27,7 +29,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //BookShelfListItems(bookList = getBooks())
-                    ProfileSection(profile = getProfile())
+                    //ProfileSection(profile = getProfile())
+                    Metrics(metrics = getMetrics())
                 }
             }
         }
