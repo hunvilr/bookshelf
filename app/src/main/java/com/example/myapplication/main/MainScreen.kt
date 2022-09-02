@@ -6,7 +6,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.myapplication.R
 import com.example.myapplication.bookshelf.BookShelfListItems
 import com.example.myapplication.bottombar.BottomBar
 import com.example.myapplication.metrics.Metrics
@@ -29,7 +31,8 @@ fun MainScreen() {
                 Metrics(metrics = getMetrics())
                 BookShelfListItems(bookList = getBooks())
             }
-        }
+        },
+        containerColor = Color(R.color.colorPrimary).copy(.1f)
     )
 }
 

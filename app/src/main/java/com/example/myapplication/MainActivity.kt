@@ -12,6 +12,9 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 
 /**
  * https://dribbble.com/shots/18526342-Mobile-App-iOS-Android-UI
+ *
+ * Colors
+ * https://convertingcolors.com/rgb-color-208_226_219.html?search=RGB(208,226,219)
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
