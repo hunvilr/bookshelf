@@ -13,6 +13,9 @@ import com.example.myapplication.books.PieChart
 import com.example.myapplication.books.getBooks
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
+/**
+ * https://dribbble.com/shots/18526342-Mobile-App-iOS-Android-UI
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //Greeting("Android")
                     BookShelfListItems(bookList = getBooks())
-                    //PieChart(points = listOf(25f, 35f), colors = listOf(Color.Red, Color.Blue))
                 }
             }
         }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,105 +41,18 @@ fun DefaultPreview() {
 fun BookShelfListItems(bookList: List<Book>) {
     LazyColumn(modifier = Modifier.fillMaxHeight()) {
         items(items = bookList, itemContent = { book ->
-            Row(modifier = Modifier
-                .padding(4.dp)
-                .fillMaxWidth()
-                .height(IntrinsicSize.Max)) {
-                val image: Painter = painterResource(id = book.bookImage)
-                Image(
-                    modifier = Modifier
-                        .size(width = 50.dp, height = 80.dp)
-                        .padding(start = 8.dp, top = 4.dp, bottom = 4.dp),
-                    painter = image,
-                    contentDescription = "",
-                    alignment = Alignment.Center
-                )
-                Spacer(
-                    modifier = Modifier.padding(8.dp)
-                )
-                Column(modifier = Modifier.align(Alignment.CenterVertically)) {
-                    Text(
-                        text = book.bookTitle,
-                        style = MaterialTheme.typography.titleMedium,
-                        textAlign = TextAlign.Center
-                    )
-                    Text(
-                        text = book.bookSubTitle,
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center
-                    )
-                }
-                Spacer(
-                    modifier = Modifier.weight(1f)
-
-                )
-                Column(
-                    modifier = Modifier
-                        .width(100.dp)
-                        .fillMaxHeight(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Row(
-                        modifier = Modifier.weight(0.5f),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.Bottom
-
-                    ) {
-                        Text(
-                            modifier = Modifier
-                                .padding(bottom = 8.dp),
-                            text = book.percentRead.toString(),
-                            style = TextStyle(
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 14.sp
-                            ),
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                    /**
-                     * 100 book.percentRead
-                     * 360 ?
-                     *
-                     * sweepAngle = (360 * book.percentRead) / 100
-                     */
-                    Row(
-                        modifier = Modifier.weight(0.5f),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.Top
-                    ) {
-                        Canvas(
-                            modifier = Modifier
-                                .size(width = 20.dp, height = 20.dp)
-                        ) {
-                            val canvasWidth = size.width
-                            val canvasHeight = size.height
-                            drawCircle(
-                                color = Color.Black,
-                                center = Offset(x = canvasWidth/2, y = canvasHeight/2),
-                                radius = canvasWidth/2,
-                                style = Stroke(2f)
-                            )
-                            val sweepAngle = (360 * book.percentRead) / 100
-                            drawArc(
-                                color = Color.Black,
-                                startAngle = 270f,
-                                sweepAngle = sweepAngle.toFloat(),
-                                useCenter = true
-                            )
-                        }
-                    }
-                }
-            }
+            BookShelfItem(book)
+            Divider(modifier = Modifier.fillMaxWidth().padding(8.dp))
         })
     }
 }
 
 @Composable
-fun BookShelfListItem1(book: Book) {
+fun BookShelfItem(book: Book) {
     Row(modifier = Modifier
         .padding(4.dp)
-        .fillMaxWidth()) {
+        .fillMaxWidth()
+        .height(IntrinsicSize.Max)) {
         val image: Painter = painterResource(id = book.bookImage)
         Image(
             modifier = Modifier
@@ -167,16 +81,67 @@ fun BookShelfListItem1(book: Book) {
             modifier = Modifier.weight(1f)
 
         )
-        Text(
+        Column(
             modifier = Modifier
-                .padding(end = 8.dp)
-                .align(Alignment.CenterVertically),
-            text = book.percentRead.toString(),
-            style = TextStyle(
-                fontWeight = FontWeight.Normal,
-                fontSize = 14.sp
-            ),
-            textAlign = TextAlign.Center
+                .width(100.dp)
+                .fillMaxHeight(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.weight(0.5f),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.Bottom
+
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(bottom = 8.dp),
+                    text = book.percentRead.toString(),
+                    style = TextStyle(
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 14.sp
+                    ),
+                    textAlign = TextAlign.Center
+                )
+            }
+            /**
+             * 100 book.percentRead
+             * 360 ?
+             *
+             * sweepAngle = (360 * book.percentRead) / 100
+             */
+            Row(
+                modifier = Modifier.weight(0.5f),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.Top
+            ) {
+                PieChart(book)
+            }
+        }
+    }
+}
+
+@Composable
+fun PieChart(book: Book) {
+    Canvas(
+        modifier = Modifier
+            .size(width = 20.dp, height = 20.dp)
+    ) {
+        val canvasWidth = size.width
+        val canvasHeight = size.height
+        drawCircle(
+            color = Color.Black,
+            center = Offset(x = canvasWidth/2, y = canvasHeight/2),
+            radius = canvasWidth/2,
+            style = Stroke(2f)
+        )
+        val sweepAngle = (360 * book.percentRead) / 100
+        drawArc(
+            color = Color.Black,
+            startAngle = 270f,
+            sweepAngle = sweepAngle.toFloat(),
+            useCenter = true
         )
     }
 }
