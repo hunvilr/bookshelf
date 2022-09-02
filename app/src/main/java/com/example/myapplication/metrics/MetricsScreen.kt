@@ -47,8 +47,18 @@ fun MetricsTitle() {
            modifier = Modifier
                .weight(0.5f)
        ) {
-           Text(text = "Shelf is all about you read.")
-           Text(text = "Try and enjoy.")
+           Text(
+               text = "Shelf is all about you read.",
+               style = MaterialTheme.typography.bodyMedium,
+               fontSize = 14.sp,
+               color = Color.DarkGray
+           )
+           Text(
+               text = "Try and enjoy.",
+               style = MaterialTheme.typography.bodyMedium,
+               fontSize = 14.sp,
+               color = Color.DarkGray
+           )
        }
 
        Row(
@@ -64,7 +74,7 @@ fun MetricsTitle() {
                painter = painterResource(id = R.drawable.ic_baseline_settings_24),
                contentDescription = "",
                colorFilter = ColorFilter.tint(Color.White),
-               modifier = Modifier.size(20.dp)
+               modifier = Modifier.size(15.dp)
            )
            Text(
                text = "SMART PICKER",

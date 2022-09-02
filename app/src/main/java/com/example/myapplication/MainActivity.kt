@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(243, 243, 235)//MaterialTheme.colorScheme.background
+                    color = Color(223, 231, 238)//MaterialTheme.colorScheme.background
                 ) {
                     Column {
                         ProfileSection(profile = getProfile())
