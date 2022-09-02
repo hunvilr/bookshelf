@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import com.example.myapplication.books.BookShelfListItems
-import com.example.myapplication.books.PieChart
-import com.example.myapplication.books.getBooks
+import com.example.myapplication.bookshelf.BookShelfListItems
+import com.example.myapplication.model.getBooks
+import com.example.myapplication.model.getProfile
+import com.example.myapplication.profile.ProfileSection
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 /**
@@ -26,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    BookShelfListItems(bookList = getBooks())
+                    //BookShelfListItems(bookList = getBooks())
+                    ProfileSection(profile = getProfile())
                 }
             }
         }
