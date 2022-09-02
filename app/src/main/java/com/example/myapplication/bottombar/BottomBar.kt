@@ -25,7 +25,7 @@ fun BottomBar(bottomBarNavItems: List<NavigationItem>) {
                 label = { Text(text = item.iconTitle) },
                 selected = false,
                 selectedContentColor = Color.White,
-                unselectedContentColor = Color.White.copy(0.4f),
+                unselectedContentColor = Color.Black.copy(0.4f),
                 onClick = { /*TODO*/ }
             )
         }

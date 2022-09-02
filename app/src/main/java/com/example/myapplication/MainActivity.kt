@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import com.example.myapplication.bookshelf.BookShelfListItems
 import com.example.myapplication.bottombar.BottomBar
+import com.example.myapplication.main.MainScreen
 import com.example.myapplication.metrics.Metrics
 import com.example.myapplication.model.getBooks
 import com.example.myapplication.model.getBottomBarNavItems
@@ -33,12 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = colorResource(id = R.color.colorPrimary) //Color(221, 231, 227)//MaterialTheme.colorScheme.background
                 ) {
-                    Column {
-                        ProfileSection(profile = getProfile())
-                        Metrics(metrics = getMetrics())
-                        BookShelfListItems(bookList = getBooks())
-                        BottomBar(getBottomBarNavItems())
-                    }
+                    MainScreen()
                 }
             }
         }
