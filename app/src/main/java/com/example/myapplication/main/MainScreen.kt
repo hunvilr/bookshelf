@@ -1,6 +1,5 @@
 package com.example.myapplication.main
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,11 +15,13 @@ import com.example.myapplication.model.getBottomBarNavItems
 import com.example.myapplication.model.getMetrics
 import com.example.myapplication.model.getProfile
 import com.example.myapplication.profile.ProfileSection
+import com.example.myapplication.topbar.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
     Scaffold(
+        topBar = { TopBar() },
         bottomBar = { BottomBar(bottomBarNavItems = getBottomBarNavItems())},
         content = { padding ->
             Column(modifier = Modifier.padding(padding)) {

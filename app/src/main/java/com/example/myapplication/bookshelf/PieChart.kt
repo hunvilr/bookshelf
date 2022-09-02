@@ -9,7 +9,41 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.model.Book
 import com.example.myapplication.ui.theme.MyApplicationTheme
+
+@Composable
+fun PieChart(book: Book) {
+    Canvas(
+        modifier = Modifier
+            .size(width = 24.dp, height = 24.dp)
+    ) {
+        val canvasWidth = size.width
+        val canvasHeight = size.height
+        drawCircle(
+            color = Color.White,
+            alpha = 1f,
+            center = Offset(x = canvasWidth/2, y = canvasHeight/2),
+            radius = canvasWidth/2,
+            style = Stroke(2f)
+        )
+
+        val sweepAngle = (360 * book.percentRead) / 100
+
+        drawArc(
+            color = Color.Black,
+            startAngle = 270f,
+            sweepAngle = sweepAngle.toFloat(),
+            useCenter = true
+        )
+        drawArc(
+            color = Color.White,
+            startAngle = 270f + sweepAngle.toFloat(),
+            sweepAngle = 360 - sweepAngle.toFloat(),
+            useCenter = true
+        )
+    }
+}
 
 @Composable
 fun PieChart(
