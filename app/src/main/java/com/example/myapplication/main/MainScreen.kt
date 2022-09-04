@@ -1,6 +1,5 @@
 package com.example.myapplication.main
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.R
 import com.example.myapplication.bookshelf.BookShelfItem
-import com.example.myapplication.bookshelf.BookShelfListItems
 import com.example.myapplication.bottombar.BottomBar
 import com.example.myapplication.greeting.HelloContent
 import com.example.myapplication.metrics.Metrics
@@ -41,10 +39,9 @@ fun MainScreen() {
             // Passing this padding is very important.
             // If the number of items increases, you will not be able to scroll to the
             // last item otherwise
-            LazyColumn(modifier = Modifier.padding(padding)) {
-                item {
-                    HelloContent()
-                }
+            LazyColumn(
+                modifier = Modifier.padding(padding)
+            ) {
                 item {
                     ProfileSection(profile = getProfile())
                 }
@@ -68,6 +65,9 @@ fun MainScreen() {
                         .fillMaxWidth()
                         .padding(8.dp))
                 })
+                item {
+                    HelloContent()
+                }
             }
         },
         containerColor = Color(R.color.colorPrimary).copy(.1f)
