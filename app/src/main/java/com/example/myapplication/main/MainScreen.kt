@@ -49,6 +49,12 @@ fun MainScreen() {
                     Metrics(metrics = getMetrics())
                 }
                 item {
+                    Metrics(metrics = getMetrics())
+                }
+                item {
+                    Metrics(metrics = getMetrics())
+                }
+                item {
                     Spacer(modifier = Modifier.fillMaxWidth().padding(4.dp))
                     Text(
                         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 8.dp, bottom = 8.dp),
@@ -65,6 +71,12 @@ fun MainScreen() {
                         .fillMaxWidth()
                         .padding(8.dp))
                 })
+                item {
+                    HelloContent()
+                }
+                item {
+                    HelloContent()
+                }
                 item {
                     HelloContent()
                 }
