@@ -7,7 +7,7 @@ data class Metrics(
 )
 
 fun getMetrics() = Metrics(
-    numberOfHours = 928,
-    numberOfBooks = 129,
-    numberOfAuthors = 100
+    numberOfHours = 111,
+    numberOfBooks = 222,
+    numberOfAuthors = 333
 )

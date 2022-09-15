@@ -9,5 +9,5 @@ data class Profile(
 
 fun getProfile() = Profile(
     image = R.drawable.tom_hanks,
-    profileName = "John Sortino"
+    profileName = "Tom Hanks"
 )

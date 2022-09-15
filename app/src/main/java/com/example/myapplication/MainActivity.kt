@@ -36,33 +36,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        window.decorView.addKeyboardInsetListener {
-            Log.d("TAG", "hjr it $it")
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.R)
-    fun View.addKeyboardInsetListener(keyboardCallback: (visible: Boolean) -> Unit) {
-        doOnLayout {
-            //get init state of keyboard
-            var keyboardVisible = rootWindowInsets?.isVisible(WindowInsets.Type.ime()) == true
-
-            //Log.d("TAG", "hjr keyboardVisible $keyboardVisible")
-            //callback as soon as the layout is set with whether the keyboard is open or not
-            keyboardCallback(keyboardVisible)
-
-            //whenever there is an inset change on the App, check if the keyboard is visible.
-            setOnApplyWindowInsetsListener { _, windowInsets ->
-                val keyboardUpdateCheck =
-                    rootWindowInsets?.isVisible(WindowInsets.Type.ime()) == true
-                //since the observer is hit quite often, only callback when there is a change.
-                if (keyboardUpdateCheck != keyboardVisible) {
-                    keyboardCallback(keyboardUpdateCheck)
-                    keyboardVisible = keyboardUpdateCheck
-                }
-
-                windowInsets
-            }
-        }
     }
 }

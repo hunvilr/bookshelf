@@ -65,9 +65,6 @@ fun MainScreen() {
                         .fillMaxWidth()
                         .padding(8.dp))
                 })
-                item {
-                    HelloContent()
-                }
             }
         },
         containerColor = Color(R.color.colorPrimary).copy(.1f)

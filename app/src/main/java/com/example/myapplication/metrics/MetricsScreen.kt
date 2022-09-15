@@ -48,13 +48,13 @@ fun MetricsTitle() {
                .weight(0.5f)
        ) {
            Text(
-               text = "Shelf is all about you read.",
+               text = "Lorem ipsum dolor sit amet.",
                style = MaterialTheme.typography.bodyMedium,
                fontSize = 14.sp,
                color = Color.DarkGray
            )
            Text(
-               text = "Try and enjoy.",
+               text = "consectetur adipiscing elit.",
                style = MaterialTheme.typography.bodyMedium,
                fontSize = 14.sp,
                color = Color.DarkGray
@@ -77,7 +77,7 @@ fun MetricsTitle() {
                modifier = Modifier.size(15.dp)
            )
            Text(
-               text = "SMART PICKER",
+               text = "MAIN PICKER",
                style = MaterialTheme.typography.titleSmall,
                color = Color.White,
                fontSize = 12.sp

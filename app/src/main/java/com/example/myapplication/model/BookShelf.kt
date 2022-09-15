@@ -5,15 +5,15 @@ import com.example.myapplication.R
 fun getBooks(): List<Book> =
     listOf<Book>(
         Book(
-            R.drawable.goldfinch,
-            "The Goldfinch",
-            "Donna Tartt",
+            R.drawable.diary,
+            "Diary of an Awesome Friendly Kid",
+            "Jeff Kinney",
             62
         ),
         Book(
-            R.drawable.die_verwandlung,
-            "Die Verwandlung",
-            "Franz Kafka",
+            R.drawable.atlas,
+            "Atlas shrugged",
+            "Ayn Rand",
             45
         )
     )
